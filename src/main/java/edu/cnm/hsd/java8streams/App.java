@@ -14,14 +14,13 @@ public class App {
 
   public static void main(String[] args) {
 
-    // findFirst
-    Optional<String> first = Arrays.asList(colors).stream().skip(10).findFirst();
-    if (first.isPresent()) {
-      System.out.println(first.orElseGet(null));
+    // findAny
+    Optional<String> any = Arrays.asList(colors).stream().distinct().limit(7).findAny();
 
+    if (any.isPresent()) {
+      System.out.println(any.get());
     } else {
       System.out.println("Not present.");
     }
-
   }
 }
