@@ -1,20 +1,18 @@
 package edu.cnm.hsd.java8streams;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static org.junit.Assert.assertFalse;
 import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
+public class AppTest {
+  // private static final String[] colors =
+  // {"Red", "Red", "Orange", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
+
+  @Test
+  public void shouldAnswerWithTrue() {
+
+    assertFalse(App.checkChars());
+  }
 }
