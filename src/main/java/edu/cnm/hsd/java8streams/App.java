@@ -16,9 +16,18 @@ public class App {
   public static void main(String[] args) {
 
     // Predicate
-    long count = Arrays.asList(colors).stream().filter(isLengthThreeChars).count();
+    long count = Arrays.asList(colors).stream().filter(isLengthSixChars).count();
     System.out.println(count);
+
+    // allMatch
+    // boolean colorLengthSix = Arrays.asList(colors).stream().anyMatch(isLengthSixChars);
+    // System.out.println(colorLengthSix);
+
+    // allMatch
+    boolean colorLengthSix = Arrays.asList(colors).stream().allMatch(isLengthGreaterThanTwo);
+    System.out.println(colorLengthSix);
   }
 
-  private static Predicate<String> isLengthThreeChars = color -> color.length() == 6;
+  private static Predicate<String> isLengthSixChars = color -> color.length() == 6;
+  private static Predicate<String> isLengthGreaterThanTwo = color -> color.length() > 3;
 }
