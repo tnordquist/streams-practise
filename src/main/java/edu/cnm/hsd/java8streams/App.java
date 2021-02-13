@@ -1,7 +1,6 @@
 package edu.cnm.hsd.java8streams;
 
 import java.util.Arrays;
-import java.util.Optional;
 
 /**
  * Hello world!
@@ -11,16 +10,12 @@ public class App {
   private static final String[] colors =
       {"Red", "Red", "Orange", "Orange", "Yello", "Green", "Blue", "Indigo", "Violet"};
 
+  private static final Integer[] nums = {34, 67, 9, 12, -3};
+
 
   public static void main(String[] args) {
 
-    // findAny
-    Optional<String> any = Arrays.asList(colors).stream().distinct().limit(7).findAny();
-
-    if (any.isPresent()) {
-      System.out.println(any.get());
-    } else {
-      System.out.println("Not present.");
-    }
+    // sorted
+    Arrays.asList(nums).stream().distinct().sorted().forEach(System.out::println);
   }
 }
