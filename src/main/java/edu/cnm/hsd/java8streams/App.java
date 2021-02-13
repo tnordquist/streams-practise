@@ -20,12 +20,12 @@ public class App {
     System.out.println(count);
 
     // allMatch
-    // boolean colorLengthSix = Arrays.asList(colors).stream().anyMatch(isLengthSixChars);
-    // System.out.println(colorLengthSix);
-
-    // allMatch
-    boolean colorLengthSix = Arrays.asList(colors).stream().allMatch(isLengthGreaterThanTwo);
+    boolean colorLengthSix = Arrays.asList(colors).stream().anyMatch(isLengthSixChars);
     System.out.println(colorLengthSix);
+
+    // anyMatch
+    boolean sixChars = Arrays.asList(colors).stream().anyMatch(isLengthSixChars);
+    System.out.println(sixChars);
   }
 
   private static Predicate<String> isLengthSixChars = color -> color.length() == 6;
