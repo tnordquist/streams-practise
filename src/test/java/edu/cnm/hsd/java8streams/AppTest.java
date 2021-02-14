@@ -7,20 +7,24 @@ import org.junit.jupiter.api.Test;
  * Unit test for simple App.
  */
 public class AppTest {
-  
-  
-  private static final String[] colors =
-      {"Red", "Red", "Orange", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
-  private static final String[] colors2 =
-    {"Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"};
-  private static final String[] colors3 =
-    {"Blue", "Indigo", "Violet"};
 
-  
+
+  static final String[][] testColors = {
+
+      {"Red", "Red", "Orange", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"},
+      {"Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"}, {"Blue", "Indigo", "Violet"}};
+
+
+  static final long[] expected = {5, 4, 2};
+
   @Test
-  public void testConsumer() {
+  public void testConsumerCount() {
 
-    assertEquals(44, App.aConsumer());
+    for (int i = 0; i < expected.length; i++) {
+      long actual = App.aConsumer(testColors[i]);
+      assertEquals(expected[i], actual);
+    }
+
 
   }
 }

@@ -1,7 +1,6 @@
 package edu.cnm.hsd.java8streams;
 
 import java.util.Arrays;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class App {
   public static final String[] colors =
@@ -11,14 +10,16 @@ public class App {
 
   public static void main(String[] args) {
 
-    System.out.println(aConsumer());
   }
 
-  public static int aConsumer() {
+  public static long aConsumer(String[] colors) {
     // consumer Functional Interface
-    AtomicInteger count = new AtomicInteger();
-    Arrays.asList(colors).stream().forEach(color -> count.addAndGet(color.length()));
-    return count.get();
+
+    long count = Arrays.asList(colors).stream().filter(color -> color.length() > 5)
+        .peek(color -> System.out.println("Filter value = " + color))
+        .map(color -> color.toUpperCase())
+        .peek(color -> System.out.println("Mapped value = " + color)).count();
+    return count;
   }
 
 }
