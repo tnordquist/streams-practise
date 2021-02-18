@@ -13,19 +13,20 @@ public class App {
 
   public static void main(String[] args) {
 
-    /*
-     * Arrays .asList(new User("Tony", 45, Arrays.asList("Red", "Green")), new User("Mark", 61,
-     * Arrays.asList("Blue", "Green", "White")), new User("Adam", 61, Arrays.asList("Blue", "Green",
-     * "White", "Orange", "Fuscia", "Ink")), new User("Ben", 19, Arrays.asList("Blue", "Green",
-     * "White", "Orange", "Fuscia", "Ink")))
-     * .stream().sorted(Comparator.comparing(User::getFirstName)) .forEach(user ->
-     * System.out.println(user.getFirstName()));
-     */
 
-    Integer reduce = Arrays.asList(nums2).stream().filter(num -> num > 2).reduce(0,
-        (subTotal, element) -> subTotal + element);
+    Integer reduceInteger = Arrays.asList(new User("Tony", 45, Arrays.asList("Red", "Green")),
+        new User("Mark", 61, Arrays.asList("Blue", "Green", "White")),
+        new User("Adam", 61, Arrays.asList("Blue", "Green", "White", "Orange", "Fuscia", "Ink")),
+        new User("Ben", 19, Arrays.asList("Blue", "Green", "White", "Orange", "Fuscia", "Ink")),
+        new User("Alice", 105, Arrays.asList("Red", "Green", "Ruby", "White")),
+        new User("George", 21, Arrays.asList("Blue", "Green", "White")),
+        new User("Judith", 48, Arrays.asList("Blue", "Green", "White", "Orange", "Fuscia", "Ink")),
+        new User("Beth", 37, Arrays.asList("Blue", "Green", "White", "Orange", "Fuscia", "Ink")))
+        .stream().filter(User -> User.getAge() > 35)
+        .reduce(0, (subTotal, element) -> subTotal + element.getAge(), Integer::sum);
 
-    System.out.println(reduce);
+    System.out.println(reduceInteger);
+
   }
 
 
